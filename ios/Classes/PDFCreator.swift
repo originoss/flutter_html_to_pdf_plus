@@ -24,8 +24,8 @@ class PDFCreator {
         UIGraphicsBeginPDFContextToData(pdfData, .zero, nil)
         
         for i in 0..<renderer.numberOfPages {
-            UIGraphicsBeginPDFPageWithInfo(printable, nil)
-            renderer.drawPage(at: i, in:  CGRect.init(x: 0, y: 0, width:page.width, height: page.height))
+            UIGraphicsBeginPDFPageWithInfo(page, nil)
+            renderer.drawPage(at: i, in: printable)
         }
         
         UIGraphicsEndPDFContext();
