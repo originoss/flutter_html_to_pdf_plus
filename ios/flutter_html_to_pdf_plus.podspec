@@ -12,10 +12,8 @@ A Flutter plugin for generating PDF documents from HTML code templates
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Origin OSS' => 'email@example.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
-  s.public_header_files = 'Classes/**/*.h'
+  s.source_files = 'flutter_html_to_pdf_plus/Sources/flutter_html_to_pdf_plus/**/*'
   s.dependency 'Flutter'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '12.0'
 end
-

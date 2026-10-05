@@ -1,3 +1,18 @@
+# 0.5.0
+
+### New features
+
+- Add Swift PM Support
+- Cocoapods is still supported
+- Add UiScene to example app
+
+### Bug fixes
+- Fixes crash due to force-unwrap of null window on apps using UiScene
+
+### SDK Changes
+- Update minimum Dart SDK to `>= 3.5.0`
+- Update minimum Flutter SDK to `>= 3.24.0` as required by Swift PM.
+
 # 0.4.0
 
 ### New features
