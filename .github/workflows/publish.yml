@@ -1,0 +1,33 @@
+name: Publish to pub.dev
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    environment: pub.dev
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.3'
+          channel: 'stable'
+      - name: Set pubspec version from tag
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          sed -i "s/^version: .*/version: $VERSION/" pubspec.yaml
+          grep '^version:' pubspec.yaml
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Dry run
+        run: flutter pub publish --dry-run
+      - name: Publish
+        run: flutter pub publish --force
